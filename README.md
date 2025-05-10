@@ -16,6 +16,9 @@ clang++ -v -E -x c++ /dev/null
 
 > При использовании редактора neovim с темплейтом lazyvim, необходимо указать редактору путь до clangd (autocmds.lua)
 >
+>```sh
+>which clangd
+>```
 
 ```lua
 local lspconfig = require("lspconfig")
