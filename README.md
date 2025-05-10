@@ -19,8 +19,8 @@ clang++ -v -E -x c++ /dev/null
 >```sh
 >which clangd
 >```
-> И вручную прописать путь
-> Или с помощью симлинка
+>И вручную прописать путь
+>Или с помощью симлинка
 
 ```lua
 local lspconfig = require("lspconfig")
