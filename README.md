@@ -14,7 +14,7 @@ clang++ -v -E -x c++ /dev/null
 
 ## lazyvim
 
-> При использовании редактора neovim с темплейтом lazyvim, необходимо указать редактору путь до clangd (autocommands.lua)
+> При использовании редактора neovim с темплейтом lazyvim, необходимо указать редактору путь до clangd (autocmds.lua)
 >
 
 ```lua
