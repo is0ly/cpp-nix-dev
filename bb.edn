@@ -27,10 +27,12 @@
            (shell "mkdir -p target")
            (shell "clang++ tests/test_main.cpp -o target/test -Wall -Wextra")
            (shell "./target/test"))}
-
+  
   format
   {:doc "Форматировать исходники"
-   :task (shell "clang-format -i src/*.cpp tests/*.cpp")}
+   :requires ([babashka.fs :as fs])
+   :task (doseq [f (fs/glob "src" "*.cpp")]
+           (shell "clang-format" "-i" (str f)))}
 
   lint
   {:doc "Анализ кода"
