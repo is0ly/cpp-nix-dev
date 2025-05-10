@@ -1,0 +1,38 @@
+;; bb.edn
+
+{:tasks
+ {
+  build
+  {:doc "Собрать проект через clang++"
+   :task (do
+           (shell "mkdir -p target")
+           (shell "clang++ src/main.cpp -o target/main -Wall -Wextra"))}
+
+  run
+  {:doc "Запустить собранный бинарник"
+   :override-builtin true
+   :task (shell "./target/main")}
+
+  clean
+  {:doc "Удалить собранные файлы"
+   :task (shell "rm -rf target")}
+
+  all
+  {:doc "Собрать и запустить"
+   :depends [build run]}
+
+  test
+  {:doc "Собрать и запустить тесты"
+   :task (do
+           (shell "mkdir -p target")
+           (shell "clang++ tests/test_main.cpp -o target/test -Wall -Wextra")
+           (shell "./target/test"))}
+
+  format
+  {:doc "Форматировать исходники"
+   :task (shell "clang-format -i src/*.cpp tests/*.cpp")}
+
+  lint
+  {:doc "Анализ кода"
+   :task (shell "clang-tidy src/main.cpp --")}
+ }}
