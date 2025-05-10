@@ -24,6 +24,6 @@ clang++ -v -E -x c++ /dev/null
 local lspconfig = require("lspconfig")
 
 lspconfig.clangd.setup({
-  cmd = { "/nix/store/x96xc56a5421nig5wj7fz2kl0syic28b-clang-tools-19.1.7/bin/clangd" },
+  cmd = { "./.nix-tools/clangd" },
 })
 ```
