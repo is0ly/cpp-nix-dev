@@ -34,6 +34,8 @@
 
           shellHook = ''
             echo "🔧 Entering C/C++ dev shell (clang)..."
+            mkdir -p .nix-tools
+            ln -sf $(which clangd) .nix-tools/clangd
             exec zsh
           '';
         };
